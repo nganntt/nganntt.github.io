@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding | Đám Cưới Của Chúng Mình</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#C5A059',
+                        sage: '#8A9A5B',
+                        cream: '#FDFBF7',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Critical inline styles — page renders correctly even if Tailwind CDN fails */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #FDFBF7; color: #4A4A4A; line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Hero — dark fallback so white text is always visible */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #2c2c2c url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%);
+        }
+
+        /* Utility colours (fallback when Tailwind hasn't loaded) */
+        .text-gold  { color: #C5A059; }
+        .border-gold { border-color: #C5A059; }
+        .bg-sage { background-color: #8A9A5B; }
+
+        /* Fade-in animation for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth hover for buttons/links */
+        .btn-hover {
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-hover:hover {
+            background-color: #C5A059;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        /* Nav pill */
+        .lang-btn {
+            position: fixed;
+            top: 1.25rem;
+            right: 1.25rem;
+            z-index: 50;
+            background: #fff;
+            border: 1px solid #C5A059;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.875rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .lang-btn:hover { background-color: #C5A059; color: #fff; }
+
+        /* Timeline dot */
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #C5A059;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Language Switcher -->
+    <button onclick="switchLanguage()" id="langBtn" class="lang-btn" aria-label="Switch language">
+        VI | DE
+    </button>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="relative z-10 text-white px-4" style="position:relative;z-index:10;">
+            <p class="text-sm md:text-base tracking-[0.3em] uppercase mb-4 opacity-80" id="hero-invite">We invite you to celebrate</p>
+            <h1 class="text-5xl md:text-7xl mb-4" id="hero-title">Lễ Thành Hôn của Ngân & Björn</h1>
+            <div class="w-20 h-px bg-white mx-auto my-6 opacity-50" style="width:80px;height:1px;background:#fff;margin:1.5rem auto;opacity:.5;"></div>
+            <p class="text-xl md:text-2xl tracking-widest uppercase" id="hero-date">Ngày 5 Tháng 9 Năm 2026</p>
+            <a href="#story" class="inline-block mt-10 border border-white px-8 py-3 text-white tracking-widest text-sm uppercase btn-hover" style="margin-top:2.5rem;display:inline-block;border:1px solid #fff;padding:0.75rem 2rem;color:#fff;text-decoration:none;letter-spacing:0.1em;font-size:0.875rem;">
+                <span id="hero-cta">Xem thêm</span> ↓
+            </a>
+        </div>
+    </header>
+
+    <!-- Love Story -->
+    <section id="story" class="fade-in py-20 px-6 max-w-4xl mx-auto text-center" style="padding:5rem 1.5rem;max-width:56rem;margin:0 auto;text-align:center;">
+        <h2 class="text-4xl text-gold mb-8" id="story-title">Câu Chuyện Tình Yêu</h2>
+        <div class="space-y-12" style="display:flex;flex-direction:column;gap:3rem;">
+            <div class="border-l-2 border-gold pl-8 text-left relative" style="border-left:2px solid #C5A059;padding-left:2rem;text-align:left;position:relative;">
+                <div class="timeline-dot"></div>
+                <h3 class="text-xl font-bold" id="story-1-title">Bắt đầu từ hẹn hò online</h3>
+                <p class="italic text-sm text-gray-500 mb-2" id="story-1-date">Thời Corona, 05/07/2021</p>
+                <p id="story-1-desc">Chúng mình quen nhau qua website hẹn hò online và lần đầu gặp trực tiếp tại Dortmund.</p>
+            </div>
+            <div class="border-l-2 border-gold pl-8 text-left relative" style="border-left:2px solid #C5A059;padding-left:2rem;text-align:left;position:relative;">
+                <div class="timeline-dot"></div>
+                <h3 class="text-xl font-bold" id="story-2-title">Số may mắn #5 của chúng mình</h3>
+                <p class="italic text-sm text-gray-500 mb-2" id="story-2-date">05/08/2025 -> 05/09/2026</p>
+                <p id="story-2-desc">Hẹn hò đầu tiên: 05/07/2021. Lễ cưới: 05/08/2025. Lễ cưới trong nhà thờ: 05/09/2026.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events -->
+    <section class="fade-in bg-stone-100 py-20 px-6" style="background:#f5f5f4;padding:5rem 1.5rem;">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10" style="max-width:64rem;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem;">
+            <div class="bg-white p-10 rounded-lg shadow-sm text-center" style="background:#fff;padding:2.5rem;border-radius:0.5rem;text-align:center;">
+                <h3 class="text-3xl mb-4" id="event-ceremony">Lễ Kết Hôn</h3>
+                <p class="mb-4 text-gold" style="color:#C5A059;margin-bottom:1rem;">🕐 16:00</p>
+                <p class="mb-2 font-semibold" style="margin-bottom:0.5rem;">St. Sixtus Kirche</p>
+                <p class="mb-6" style="margin-bottom:1.5rem;">Pastoratsweg 22, 45721 Haltern am See</p>
+                <a href="https://maps.google.com/?q=Pastoratsweg+22,+45721+Haltern+am+See" target="_blank" rel="noopener noreferrer" title="Pastoratsweg 22, 45721 Haltern am See" aria-label="Xem bản đồ Pastoratsweg 22, 45721 Haltern am See" class="inline-block border border-gold px-6 py-2 btn-hover" id="btn-map" style="display:inline-block;border:1px solid #C5A059;padding:0.5rem 1.5rem;text-decoration:none;color:#4A4A4A;">Xem Bản Đồ - Pastoratsweg 22</a>
+            </div>
+            <div class="bg-white p-10 rounded-lg shadow-sm text-center" style="background:#fff;padding:2.5rem;border-radius:0.5rem;text-align:center;">
+                <h3 class="text-3xl mb-4" id="event-reception">Tiệc Chiêu Đãi</h3>
+                <p class="mb-4 text-gold" style="color:#C5A059;margin-bottom:1rem;">🕕 18:00</p>
+                <p class="mb-2 font-semibold" style="margin-bottom:0.5rem;">Hotel - Restaurant Himmelmann</p>
+                <p class="mb-6" style="margin-bottom:1.5rem;">Dorstener Str. 650, 45721 Haltern am See</p>
+                <a href="https://maps.google.com/?q=Dorstener+Str.+650,+45721+Haltern+am+See" target="_blank" rel="noopener noreferrer" title="Dorstener Str. 650, 45721 Haltern am See" aria-label="Xem bản đồ Dorstener Str. 650, 45721 Haltern am See" class="inline-block border border-gold px-6 py-2 btn-hover" id="btn-map2" style="display:inline-block;border:1px solid #C5A059;padding:0.5rem 1.5rem;text-decoration:none;color:#4A4A4A;">Xem Bản Đồ - Dorstener Str. 650</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="fade-in py-20 px-6 max-w-xl mx-auto" style="padding:5rem 1.5rem;max-width:36rem;margin:0 auto;">
+        <h2 class="text-4xl text-center text-gold mb-10" id="rsvp-title" style="text-align:center;color:#C5A059;margin-bottom:2.5rem;">Xác Nhận Tham Dự</h2>
+        <form id="rsvpForm" class="space-y-6" style="display:flex;flex-direction:column;gap:1.5rem;">
+            <div>
+                <label class="block mb-2 font-semibold" id="label-name" for="nameInput">Họ và Tên</label>
+                <input id="nameInput" type="text" required class="w-full border-b border-gray-300 p-2 focus:border-gold outline-none bg-transparent" style="width:100%;border:none;border-bottom:1px solid #ccc;padding:0.5rem;outline:none;background:transparent;">
+            </div>
+            <div>
+                <label class="block mb-2 font-semibold" id="label-attend" for="attendSelect">Bạn sẽ đến chứ?</label>
+                <select id="attendSelect" class="w-full border-b border-gray-300 p-2 focus:border-gold outline-none bg-transparent" style="width:100%;border:none;border-bottom:1px solid #ccc;padding:0.5rem;outline:none;background:transparent;">
+                    <option id="opt-yes" value="Yes">Chắc chắn rồi!</option>
+                    <option id="opt-no" value="No">Rất tiếc, mình không thể đến</option>
+                </select>
+            </div>
+            <div>
+                <label class="block mb-2 font-semibold" id="label-food" for="foodInput">Lưu ý về ăn uống (nếu có)</label>
+                <textarea id="foodInput" class="w-full border-b border-gray-300 p-2 focus:border-gold outline-none bg-transparent" rows="2" style="width:100%;border:none;border-bottom:1px solid #ccc;padding:0.5rem;outline:none;background:transparent;resize:vertical;"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-sage text-white py-3 rounded-md hover:opacity-90 font-bold tracking-widest" id="btn-submit" style="width:100%;background:#8A9A5B;color:#fff;padding:0.75rem;border:none;border-radius:0.375rem;cursor:pointer;font-weight:700;letter-spacing:0.1em;font-size:1rem;">GỬI XÁC NHẬN</button>
+        </form>
+        <p id="rsvpMsg" class="text-center mt-6 text-gold font-semibold hidden" style="text-align:center;margin-top:1.5rem;color:#C5A059;font-weight:600;display:none;"></p>
+        <p id="rsvpConfigMsg" class="text-center mt-4" style="display:none;margin-top:1rem;color:#b45309;font-size:0.95rem;"></p>
+    </section>
+
+    <!-- Gift / Registry -->
+    <section class="fade-in py-20 bg-stone-50 text-center px-6" style="background:#fafaf9;padding:5rem 1.5rem;text-align:center;">
+        <h2 class="text-4xl text-gold mb-10" id="gift-title" style="color:#C5A059;margin-bottom:2.5rem;">Hộp Mừng Cưới</h2>
+        <p class="max-w-2xl mx-auto mb-10 italic" id="gift-desc" style="max-width:42rem;margin:0 auto 2.5rem;font-style:italic;">Sự hiện diện của bạn là món quà lớn nhất, nhưng nếu bạn muốn gửi lời chúc riêng...</p>
+        <div class="flex flex-wrap justify-center gap-10" style="display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem;">
+            <div style="width:12rem;text-align:center;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=BANK_DETAILS_HERE" alt="QR Code — Bank Transfer DE" class="border p-2 bg-white" style="border:1px solid #ccc;padding:0.5rem;background:#fff;width:100%;" loading="lazy">
+                <p class="mt-4 font-bold" style="margin-top:1rem;font-weight:700;">Bank Transfer (DE)</p>
+            </div>
+            <div style="width:12rem;text-align:center;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=MOMO_DETAILS_HERE" alt="QR Code — Momo / Bank VN" class="border p-2 bg-white" style="border:1px solid #ccc;padding:0.5rem;background:#fff;width:100%;" loading="lazy">
+                <p class="mt-4 font-bold" style="margin-top:1rem;font-weight:700;">Momo / Bank (VN)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-sm text-gray-400" style="padding:2.5rem;text-align:center;font-size:0.875rem;color:#9ca3af;">
+        <p>&copy; 2026 — Handcrafted with ♥</p>
+    </footer>
+
+    <script>
+        /* ===== Translations ===== */
+        const translations = {
+            vi: {
+                heroInvite: "Trân trọng kính mời",
+                heroTitle: "Lễ Thành Hôn của Ngân & Björn",
+                heroDate: "Ngày 5 Tháng 9 Năm 2026",
+                heroCta: "Xem thêm",
+                storyTitle: "Câu Chuyện Tình Yêu",
+                story1Title: "Bắt đầu từ hẹn hò online",
+                story1Date: "Thời Corona, 05/07/2021",
+                story1Desc: "Chúng mình quen nhau qua website hẹn hò online và lần đầu gặp trực tiếp tại Dortmund.",
+                story2Title: "Số may mắn #5 của chúng mình",
+                story2Date: "05/08/2025 -> 05/09/2026",
+                story2Desc: "Hẹn hò đầu tiên: 05/07/2021. Lễ cưới: 05/08/2025. Lễ cưới trong nhà thờ: 05/09/2026.",
+                eventCeremony: "Lễ Kết Hôn",
+                eventReception: "Tiệc Chiêu Đãi",
+                btnMap: "Xem Bản Đồ",
+                rsvpTitle: "Xác Nhận Tham Dự",
+                labelName: "Họ và Tên",
+                labelAttend: "Bạn sẽ đến chứ?",
+                optYes: "Chắc chắn rồi!",
+                optNo: "Rất tiếc, mình không thể đến",
+                labelFood: "Lưu ý về ăn uống (nếu có)",
+                btnSubmit: "GỬI XÁC NHẬN",
+                rsvpSuccess: "Cảm ơn bạn! Chúng mình đã nhận được xác nhận.",
+                rsvpNameRequired: "Vui lòng nhập họ và tên trước khi gửi.",
+                rsvpNotSaved: "Thong tin chua duoc luu vao Google Form. Vui long cap nhat dung entry ID va mo quyen truy cap Form.",
+                giftTitle: "Hộp Mừng Cưới",
+                giftDesc: "Sự hiện diện của bạn là món quà lớn nhất, nhưng nếu bạn muốn gửi lời chúc riêng..."
+            },
+            de: {
+                heroInvite: "Wir laden euch herzlich ein",
+                heroTitle: "Die Hochzeit von Ngân & Björn",
+                heroDate: "5. September 2026",
+                heroCta: "Mehr erfahren",
+                storyTitle: "Unsere Liebesgeschichte",
+                story1Title: "Kennengelernt online",
+                story1Date: "Corona-Zeit, 05.07.2021",
+                story1Desc: "Wir haben uns auf einer Online-Dating-Website kennengelernt und uns in Dortmund zum ersten Mal getroffen.",
+                story2Title: "Unsere Glückszahl #5",
+                story2Date: "05.08.2025 -> 05.09.2026",
+                story2Desc: "Erstes Date: 05.07.2021. Hochzeit: 05.08.2025. Kirchliche Trauung: 05.09.2026.",
+                eventCeremony: "Trauung",
+                eventReception: "Hochzeitsfeier",
+                btnMap: "Karte anzeigen",
+                rsvpTitle: "Rückmeldung",
+                labelName: "Vollständiger Name",
+                labelAttend: "Kommst du?",
+                optYes: "Ja, ich bin dabei",
+                optNo: "Leider kann ich nicht",
+                labelFood: "Essenswünsche / Allergien",
+                btnSubmit: "BESTÄTIGEN",
+                rsvpSuccess: "Vielen Dank! Wir haben deine Rückmeldung erhalten.",
+                rsvpNameRequired: "Bitte gib zuerst deinen vollständigen Namen ein.",
+                rsvpNotSaved: "Daten wurden noch nicht im Google-Formular gespeichert. Bitte korrekte Entry-IDs eintragen und Formularzugriff freigeben.",
+                giftTitle: "Hochzeitskasse",
+                giftDesc: "Deine Anwesenheit ist unser größtes Geschenk, aber falls du uns unterstützen möchtest..."
+            }
+        };
+
+        // Google Forms integration: Form URL is set, only entry IDs still need to be filled.
+        const GOOGLE_FORM_CONFIG = {
+            formViewUrl: 'https://docs.google.com/forms/d/18YkpFi1Fso7DnDcOf7NS9UiDsY7Z4LoGirQ1ovVxZTM/viewform',
+            formResponseUrl: 'https://docs.google.com/forms/d/18YkpFi1Fso7DnDcOf7NS9UiDsY7Z4LoGirQ1ovVxZTM/formResponse',
+            nameEntry: 'entry.186383924',
+            attendEntry: 'entry.2222222222',
+            foodEntry: 'entry.1831033357'
+        };
+
+        let currentLang = 'vi';
+
+        function updateContent() {
+            const t = translations[currentLang];
+            const set = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
+
+            set('hero-invite', t.heroInvite);
+            set('hero-title', t.heroTitle);
+            set('hero-date', t.heroDate);
+            set('hero-cta', t.heroCta);
+            set('story-title', t.storyTitle);
+            set('story-1-title', t.story1Title);
+            set('story-1-date', t.story1Date);
+            set('story-1-desc', t.story1Desc);
+            set('story-2-title', t.story2Title);
+            set('story-2-date', t.story2Date);
+            set('story-2-desc', t.story2Desc);
+            set('event-ceremony', t.eventCeremony);
+            set('event-reception', t.eventReception);
+            set('btn-map', t.btnMap);
+            set('btn-map2', t.btnMap);
+            set('rsvp-title', t.rsvpTitle);
+            set('label-name', t.labelName);
+            set('label-attend', t.labelAttend);
+            set('opt-yes', t.optYes);
+            set('opt-no', t.optNo);
+            set('label-food', t.labelFood);
+            set('btn-submit', t.btnSubmit);
+            set('gift-title', t.giftTitle);
+            set('gift-desc', t.giftDesc);
+
+            document.getElementById('langBtn').textContent = currentLang === 'vi' ? 'VI | DE' : 'DE | VI';
+            document.documentElement.lang = currentLang;
+        }
+
+        function switchLanguage() {
+            currentLang = currentLang === 'vi' ? 'de' : 'vi';
+            updateContent();
+        }
+
+        /* ===== RSVP form handler ===== */
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const msg = document.getElementById('rsvpMsg');
+            const configMsg = document.getElementById('rsvpConfigMsg');
+            const nameValue = document.getElementById('nameInput').value.trim();
+            const attendValue = document.getElementById('attendSelect').value;
+            const attendText = document.getElementById('attendSelect').selectedOptions[0].text;
+            const foodValue = document.getElementById('foodInput').value.trim();
+            const formEl = this;
+
+            const showSuccess = function() {
+                const t = translations[currentLang];
+                const foodDisplay = foodValue || '-';
+                msg.style.whiteSpace = 'pre-line';
+                msg.textContent = `${t.rsvpSuccess}\n${t.labelName}: ${nameValue}\n${t.labelAttend}: ${attendText}\n${t.labelFood}: ${foodDisplay}`;
+                msg.style.display = 'block';
+                msg.classList.remove('hidden');
+                formEl.reset();
+            };
+
+            msg.style.display = 'none';
+            configMsg.style.display = 'none';
+
+            if (!nameValue) {
+                configMsg.textContent = translations[currentLang].rsvpNameRequired;
+                configMsg.style.display = 'block';
+                return;
+            }
+
+            const isValidEntryId = function(entryId) {
+                return /^entry\.\d+$/.test(entryId);
+            };
+
+            if (!isValidEntryId(GOOGLE_FORM_CONFIG.nameEntry) || !isValidEntryId(GOOGLE_FORM_CONFIG.attendEntry) || !isValidEntryId(GOOGLE_FORM_CONFIG.foodEntry)) {
+                configMsg.textContent = translations[currentLang].rsvpNotSaved;
+                configMsg.style.display = 'block';
+                return;
+            }
+
+            const payload = new URLSearchParams();
+            payload.append(GOOGLE_FORM_CONFIG.nameEntry, nameValue);
+            payload.append(GOOGLE_FORM_CONFIG.attendEntry, attendValue);
+            payload.append(GOOGLE_FORM_CONFIG.foodEntry, foodValue);
+
+            fetch(GOOGLE_FORM_CONFIG.formResponseUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: payload.toString()
+            }).then(() => {
+                showSuccess();
+            }).catch(() => {
+                configMsg.textContent = currentLang === 'vi'
+                    ? 'Gui that bai, vui long thu lai sau.'
+                    : 'Senden fehlgeschlagen, bitte erneut versuchen.';
+                configMsg.style.display = 'block';
+            });
+        });
+
+        /* ===== Scroll-triggered fade-in ===== */
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+        /* ===== Initialize ===== */
+        updateContent();
+    </script>
+</body>
+</html>
