@@ -192,6 +192,9 @@
     <!-- RSVP -->
     <section class="fade-in py-20 px-6 max-w-xl mx-auto" style="padding:5rem 1.5rem;max-width:36rem;margin:0 auto;">
         <h2 class="text-4xl text-center text-gold mb-10" id="rsvp-title" style="text-align:center;color:#C5A059;margin-bottom:2.5rem;">Xác Nhận Tham Dự</h2>
+        <h3 class="text-2xl text-center text-gold mb-10" id="rsvp-title1" style="text-align:center;color:#C5A059;margin-bottom:2.5rem;">Vui lòng xác nhận tham dự trước ngày 31/07/2026</h3>
+        
+
         <form id="rsvpForm" class="space-y-6" style="display:flex;flex-direction:column;gap:1.5rem;">
             <div>
                 <label class="block mb-2 font-semibold" id="label-contact" for="nameInput">Tên/ Người đại diện (nhóm)</label>
@@ -246,6 +249,7 @@
                 eventReception: "Tiệc Chiêu Đãi",
                 btnMap: "Xem Bản Đồ",
                 rsvpTitle: "Xác Nhận Tham Dự",
+                rsvpTitle1: "Vui lòng xác nhận tham dự trước ngày 31/07/2026",
                 labelContact: "Tên/ Người đại diện (nhóm)",
                 labelAttend: "Bạn sẽ đến chứ?",
                 rsvpOptYes: "Chắc chắn rồi!",
@@ -282,6 +286,7 @@
                 eventReception: "Hochzeitsfeier",
                 btnMap: "Karte anzeigen",
                 rsvpTitle: "Rückmeldung",
+                rsvpTitle1: "Wir freuen uns über Eure Rückmeldung bis zum 31/07/2026",
                 labelContact: "Name",
                 labelAttend: "Kommst du?",
                 rsvpOptYes: "Ja, ich bin dabei",
@@ -340,6 +345,7 @@
             set('btn-map', t.btnMap);
             set('btn-map2', t.btnMap);
             set('rsvp-title', t.rsvpTitle);
+            set('rsvp-title1', t.rsvpTitle1);
             set('label-contact', t.labelContact);
             set('label-attend', t.labelAttend);
             set('opt-yes', t.rsvpOptYes);
@@ -376,7 +382,7 @@
             const rawAdult = parseInt(adultInput.value, 10);
             const rawChild = parseInt(childInput.value, 10);
 
-            const adultCount = Math.max(0, Math.min(20, Number.isNaN(rawAdult) ? 1 : rawAdult));
+            const adultCount = Math.max(0, Math.min(20, Number.isNaN(rawAdult) ? 0 : rawAdult));
             const childCount = Math.max(0, Math.min(20, Number.isNaN(rawChild) ? 0 : rawChild));
 
             adultInput.value = adultCount;
@@ -404,7 +410,7 @@
             const childSizeRaw = parseInt(document.getElementById('childSizeInput').value, 10);
             const adultRawValue = document.getElementById('adultSizeInput').value.trim();
             const childRawValue = document.getElementById('childSizeInput').value.trim();
-            const adultSize = Number.isNaN(adultSizeRaw) ? 0 : adultSizeRaw;
+            const adultSize = Number.isNaN(adultSizeRaw) ? 1 : adultSizeRaw;
             const childSize = Number.isNaN(childSizeRaw) ? 0 : childSizeRaw;
             const totalSize = adultSize + childSize;
             const foodValue = document.getElementById('foodInput').value.trim();
@@ -418,8 +424,8 @@
                 showTemporaryMessage(msg, `${t.rsvpSuccess}\n${t.labelContact}: ${contactName}\n${t.labelAttend}: ${attendText}\n${t.labelAdultSize}: ${adultSize}\n${t.labelChildSize}: ${childSize}\n${t.labelFood}: ${foodDisplay}`);
                 msg.classList.remove('hidden');
                 formEl.reset();
-                document.getElementById('adultSizeInput').value = '1';
-                document.getElementById('childSizeInput').value = '0';
+                //document.getElementById('adultSizeInput').value = '1';
+                //document.getElementById('childSizeInput').value = '0';
                 renderMemberRows();
             };
 
