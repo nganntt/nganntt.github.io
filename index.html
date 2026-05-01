@@ -25,18 +25,32 @@
         /* Critical inline styles — page renders correctly even if Tailwind CDN fails */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: #FDFBF7; color: #4A4A4A; line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; background-color: #FDFBF7; color: #4A4A4A; line-height: 1.6; visibility: hidden; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
         /* Hero — dark fallback so white text is always visible */
         .hero {
+            
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            background: #2c2c2c url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            text-align: center; 
+       /*                 
+            max-width: 100%;
+            max-height: 100vh;
+            height: auto;
+            width: auto;
+            object-fit: contain;
+     */
+           /* background: #2c2c2c url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;*/
+           background: #2c2c2c url('20260501_163113.jpg') top/cover no-repeat;
+           
+                    
+            
+
+           
         }
         .hero-overlay {
             position: absolute;
@@ -99,6 +113,18 @@
         }
     </style>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  const encodedKey_public = "My1QeU91d3pFT25LMFR2Z2Y=";
+        
+  const decodedKey_public = atob(encodedKey_public);
+  console.log("Encoded:", decodedKey_public);
+  (function () {
+    emailjs.init(decodedKey_public)  //"3-PyOuwzEOnK0Tvgf"); 
+  })();
+</script>
+
 <body class="antialiased">
 
     <!-- Language Switcher -->
@@ -127,17 +153,21 @@
             <div class="border-l-2 border-gold pl-8 text-left relative" style="border-left:2px solid #C5A059;padding-left:2rem;text-align:left;position:relative;">
                 <div class="timeline-dot"></div>
                 <h3 class="text-xl font-bold" id="story-1-title">Bắt đầu từ hẹn hò online</h3>
-                <p class="italic text-sm text-gray-500 mb-2" id="story-1-date">Thời Corona, 05/07/2021</p>
+                <p class="italic text-sm text-gray-500 mb-2" id="story-1-date">Thời Corona, 05/07/2020</p>
                 <p id="story-1-desc">Chúng mình quen nhau qua website hẹn hò online và lần đầu gặp trực tiếp tại Dortmund.</p>
             </div>
             <div class="border-l-2 border-gold pl-8 text-left relative" style="border-left:2px solid #C5A059;padding-left:2rem;text-align:left;position:relative;">
                 <div class="timeline-dot"></div>
                 <h3 class="text-xl font-bold" id="story-2-title">Số may mắn #5 của chúng mình</h3>
                 <p class="italic text-sm text-gray-500 mb-2" id="story-2-date">05/08/2025 -> 05/09/2026</p>
-                <p id="story-2-desc">Hẹn hò đầu tiên: 05/07/2021. Lễ cưới: 05/08/2025. Lễ cưới trong nhà thờ: 05/09/2026.</p>
+                <p id="story-2-desc">Hẹn hò đầu tiên: 05/07/2020. Lễ cưới: 05/08/2025. Lễ cưới trong nhà thờ: 05/09/2026.</p>
             </div>
         </div>
     </section>
+
+  
+
+  <div class="divider"></div>
 
     <!-- Events -->
     <section class="fade-in bg-stone-100 py-20 px-6" style="background:#f5f5f4;padding:5rem 1.5rem;">
@@ -145,13 +175,13 @@
             <div class="bg-white p-10 rounded-lg shadow-sm text-center" style="background:#fff;padding:2.5rem;border-radius:0.5rem;text-align:center;">
                 <h3 class="text-3xl mb-4" id="event-ceremony">Lễ Kết Hôn</h3>
                 <p class="mb-4 text-gold" style="color:#C5A059;margin-bottom:1rem;">🕐 16:00</p>
-                <p class="mb-2 font-semibold" style="margin-bottom:0.5rem;">St. Sixtus Kirche</p>
+                <p class="mb-2 font-semibold" style="margin-bottom:0.5rem;">St. Lambertus Kirche</p>
                 <p class="mb-6" style="margin-bottom:1.5rem;">Pastoratsweg 22, 45721 Haltern am See</p>
                 <a href="https://maps.google.com/?q=Pastoratsweg+22,+45721+Haltern+am+See" target="_blank" rel="noopener noreferrer" title="Pastoratsweg 22, 45721 Haltern am See" aria-label="Xem bản đồ Pastoratsweg 22, 45721 Haltern am See" class="inline-block border border-gold px-6 py-2 btn-hover" id="btn-map" style="display:inline-block;border:1px solid #C5A059;padding:0.5rem 1.5rem;text-decoration:none;color:#4A4A4A;">Xem Bản Đồ - Pastoratsweg 22</a>
             </div>
             <div class="bg-white p-10 rounded-lg shadow-sm text-center" style="background:#fff;padding:2.5rem;border-radius:0.5rem;text-align:center;">
                 <h3 class="text-3xl mb-4" id="event-reception">Tiệc Chiêu Đãi</h3>
-                <p class="mb-4 text-gold" style="color:#C5A059;margin-bottom:1rem;">🕕 18:00</p>
+                <p class="mb-4 text-gold" style="color:#C5A059;margin-bottom:1rem;">🕕 18:30</p>
                 <p class="mb-2 font-semibold" style="margin-bottom:0.5rem;">Hotel - Restaurant Himmelmann</p>
                 <p class="mb-6" style="margin-bottom:1.5rem;">Dorstener Str. 650, 45721 Haltern am See</p>
                 <a href="https://maps.google.com/?q=Dorstener+Str.+650,+45721+Haltern+am+See" target="_blank" rel="noopener noreferrer" title="Dorstener Str. 650, 45721 Haltern am See" aria-label="Xem bản đồ Dorstener Str. 650, 45721 Haltern am See" class="inline-block border border-gold px-6 py-2 btn-hover" id="btn-map2" style="display:inline-block;border:1px solid #C5A059;padding:0.5rem 1.5rem;text-decoration:none;color:#4A4A4A;">Xem Bản Đồ - Dorstener Str. 650</a>
@@ -164,18 +194,28 @@
         <h2 class="text-4xl text-center text-gold mb-10" id="rsvp-title" style="text-align:center;color:#C5A059;margin-bottom:2.5rem;">Xác Nhận Tham Dự</h2>
         <form id="rsvpForm" class="space-y-6" style="display:flex;flex-direction:column;gap:1.5rem;">
             <div>
-                <label class="block mb-2 font-semibold" id="label-name" for="nameInput">Họ và Tên</label>
+                <label class="block mb-2 font-semibold" id="label-contact" for="nameInput">Tên/ Người đại diện (nhóm)</label>
                 <input id="nameInput" type="text" required class="w-full border-b border-gray-300 p-2 focus:border-gold outline-none bg-transparent" style="width:100%;border:none;border-bottom:1px solid #ccc;padding:0.5rem;outline:none;background:transparent;">
             </div>
             <div>
                 <label class="block mb-2 font-semibold" id="label-attend" for="attendSelect">Bạn sẽ đến chứ?</label>
                 <select id="attendSelect" class="w-full border-b border-gray-300 p-2 focus:border-gold outline-none bg-transparent" style="width:100%;border:none;border-bottom:1px solid #ccc;padding:0.5rem;outline:none;background:transparent;">
                     <option id="opt-yes" value="Yes">Chắc chắn rồi!</option>
-                    <option id="opt-no" value="No">Rất tiếc, mình không thể đến</option>
+                    <option id="opt-no" value="No">Rât tiếc, không thể tham dự.</option>
                 </select>
             </div>
+            <div class="grid md:grid-cols-2 gap-4" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;">
             <div>
-                <label class="block mb-2 font-semibold" id="label-food" for="foodInput">Lưu ý về ăn uống (nếu có)</label>
+                <label class="block mb-2 font-semibold" id="label-adult-size" for="adultSizeInput">Số người lớn</label>
+                <input id="adultSizeInput" type="text" required inputmode="numeric" pattern="[0-9]*" value="1" class="w-full border-b border-gray-300 p-2 focus:border-gold outline-none bg-transparent" style="width:100%;border:none;border-bottom:1px solid #ccc;padding:0.5rem;outline:none;background:transparent;">
+            </div>
+            <div>
+                <label class="block mb-2 font-semibold" id="label-child-size" for="childSizeInput">Số trẻ em</label>
+                <input id="childSizeInput" type="text" required inputmode="numeric" pattern="[0-9]*" value="0" class="w-full border-b border-gray-300 p-2 focus:border-gold outline-none bg-transparent" style="width:100%;border:none;border-bottom:1px solid #ccc;padding:0.5rem;outline:none;background:transparent;">
+            </div>
+            </div>
+            <div>
+                <label class="block mb-2 font-semibold" id="label-food" for="foodInput">Ghi chú thêm (ăn uống / dị ứng)</label>
                 <textarea id="foodInput" class="w-full border-b border-gray-300 p-2 focus:border-gold outline-none bg-transparent" rows="2" style="width:100%;border:none;border-bottom:1px solid #ccc;padding:0.5rem;outline:none;background:transparent;resize:vertical;"></textarea>
             </div>
             <button type="submit" class="w-full bg-sage text-white py-3 rounded-md hover:opacity-90 font-bold tracking-widest" id="btn-submit" style="width:100%;background:#8A9A5B;color:#fff;padding:0.75rem;border:none;border-radius:0.375rem;cursor:pointer;font-weight:700;letter-spacing:0.1em;font-size:1rem;">GỬI XÁC NHẬN</button>
@@ -184,26 +224,8 @@
         <p id="rsvpConfigMsg" class="text-center mt-4" style="display:none;margin-top:1rem;color:#b45309;font-size:0.95rem;"></p>
     </section>
 
-    <!-- Gift / Registry -->
-    <section class="fade-in py-20 bg-stone-50 text-center px-6" style="background:#fafaf9;padding:5rem 1.5rem;text-align:center;">
-        <h2 class="text-4xl text-gold mb-10" id="gift-title" style="color:#C5A059;margin-bottom:2.5rem;">Hộp Mừng Cưới</h2>
-        <p class="max-w-2xl mx-auto mb-10 italic" id="gift-desc" style="max-width:42rem;margin:0 auto 2.5rem;font-style:italic;">Sự hiện diện của bạn là món quà lớn nhất, nhưng nếu bạn muốn gửi lời chúc riêng...</p>
-        <div class="flex flex-wrap justify-center gap-10" style="display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem;">
-            <div style="width:12rem;text-align:center;">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=BANK_DETAILS_HERE" alt="QR Code — Bank Transfer DE" class="border p-2 bg-white" style="border:1px solid #ccc;padding:0.5rem;background:#fff;width:100%;" loading="lazy">
-                <p class="mt-4 font-bold" style="margin-top:1rem;font-weight:700;">Bank Transfer (DE)</p>
-            </div>
-            <div style="width:12rem;text-align:center;">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=MOMO_DETAILS_HERE" alt="QR Code — Momo / Bank VN" class="border p-2 bg-white" style="border:1px solid #ccc;padding:0.5rem;background:#fff;width:100%;" loading="lazy">
-                <p class="mt-4 font-bold" style="margin-top:1rem;font-weight:700;">Momo / Bank (VN)</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-10 text-center text-sm text-gray-400" style="padding:2.5rem;text-align:center;font-size:0.875rem;color:#9ca3af;">
-        <p>&copy; 2026 — Handcrafted with ♥</p>
-    </footer>
+
 
     <script>
         /* ===== Translations ===== */
@@ -215,24 +237,32 @@
                 heroCta: "Xem thêm",
                 storyTitle: "Câu Chuyện Tình Yêu",
                 story1Title: "Bắt đầu từ hẹn hò online",
-                story1Date: "Thời Corona, 05/07/2021",
+                story1Date: "Thời Corona, 05/07/2020",
                 story1Desc: "Chúng mình quen nhau qua website hẹn hò online và lần đầu gặp trực tiếp tại Dortmund.",
                 story2Title: "Số may mắn #5 của chúng mình",
                 story2Date: "05/08/2025 -> 05/09/2026",
-                story2Desc: "Hẹn hò đầu tiên: 05/07/2021. Lễ cưới: 05/08/2025. Lễ cưới trong nhà thờ: 05/09/2026.",
+                story2Desc: "Hẹn hò đầu tiên: 05/07/2020. Lễ cưới: 05/08/2025. Lễ cưới trong nhà thờ: 05/09/2026.",
                 eventCeremony: "Lễ Kết Hôn",
                 eventReception: "Tiệc Chiêu Đãi",
                 btnMap: "Xem Bản Đồ",
                 rsvpTitle: "Xác Nhận Tham Dự",
-                labelName: "Họ và Tên",
+                labelContact: "Tên/ Người đại diện (nhóm)",
                 labelAttend: "Bạn sẽ đến chứ?",
-                optYes: "Chắc chắn rồi!",
-                optNo: "Rất tiếc, mình không thể đến",
-                labelFood: "Lưu ý về ăn uống (nếu có)",
+                rsvpOptYes: "Chắc chắn rồi!",
+                rsvpOptNo: "Rất tiếc, không thể tham dự.",
+                labelAdultSize: "Số người lớn",
+                labelChildSize: "Số trẻ em",
+                labelFood: "Ghi chú thêm (ăn uống / dị ứng)",
+                memberName: "Tên thành viên",
+                memberAttend: "Xác nhận",
+                optYes: "Có tham dự",
+                optNo: "Không tham dự",
                 btnSubmit: "GỬI XÁC NHẬN",
                 rsvpSuccess: "Cảm ơn bạn! Chúng mình đã nhận được xác nhận.",
                 rsvpNameRequired: "Vui lòng nhập họ và tên trước khi gửi.",
-                rsvpNotSaved: "Thong tin chua duoc luu vao Google Form. Vui long cap nhat dung entry ID va mo quyen truy cap Form.",
+                rsvpCountRequired: "Vui lòng nhập số người lớn và số trẻ em.",
+                rsvpMemberRequired: "Vui lòng nhập đầy đủ tên các thành viên.",
+                rsvpSizeInvalid: "Số lượng thành viên phải từ 1 đến 20.",
                 giftTitle: "Hộp Mừng Cưới",
                 giftDesc: "Sự hiện diện của bạn là món quà lớn nhất, nhưng nếu bạn muốn gửi lời chúc riêng..."
             },
@@ -252,30 +282,43 @@
                 eventReception: "Hochzeitsfeier",
                 btnMap: "Karte anzeigen",
                 rsvpTitle: "Rückmeldung",
-                labelName: "Vollständiger Name",
+                labelContact: "Name",
                 labelAttend: "Kommst du?",
-                optYes: "Ja, ich bin dabei",
-                optNo: "Leider kann ich nicht",
-                labelFood: "Essenswünsche / Allergien",
+                rsvpOptYes: "Ja, ich bin dabei",
+                rsvpOptNo: "Leider kann ich nicht teilnehmen",
+                labelAdultSize: "Erwachsene",
+                labelChildSize: "Kinder",
+                labelFood: "Notiz (Essen / Allergien)",
+                memberName: "Name Mitglied",
+                memberAttend: "Teilnahme",
+                optYes: "Nimmt teil",
+                optNo: "Nimmt nicht teil",
                 btnSubmit: "BESTÄTIGEN",
                 rsvpSuccess: "Vielen Dank! Wir haben deine Rückmeldung erhalten.",
                 rsvpNameRequired: "Bitte gib zuerst deinen vollständigen Namen ein.",
-                rsvpNotSaved: "Daten wurden noch nicht im Google-Formular gespeichert. Bitte korrekte Entry-IDs eintragen und Formularzugriff freigeben.",
+                rsvpCountRequired: "Bitte Anzahl Erwachsene und Kinder eingeben.",
+                rsvpMemberRequired: "Bitte alle Mitgliedsnamen ausfuellen.",
+                rsvpSizeInvalid: "Teamgroesse muss zwischen 1 und 20 sein.",
                 giftTitle: "Hochzeitskasse",
                 giftDesc: "Deine Anwesenheit ist unser größtes Geschenk, aber falls du uns unterstützen möchtest..."
             }
         };
-
-        // Google Forms integration: Form URL is set, only entry IDs still need to be filled.
-        const GOOGLE_FORM_CONFIG = {
-            formViewUrl: 'https://docs.google.com/forms/d/18YkpFi1Fso7DnDcOf7NS9UiDsY7Z4LoGirQ1ovVxZTM/viewform',
-            formResponseUrl: 'https://docs.google.com/forms/d/18YkpFi1Fso7DnDcOf7NS9UiDsY7Z4LoGirQ1ovVxZTM/formResponse',
-            nameEntry: 'entry.186383924',
-            attendEntry: 'entry.2222222222',
-            foodEntry: 'entry.1831033357'
-        };
-
         let currentLang = 'vi';
+        let messageHideTimer = null;
+
+        function showTemporaryMessage(el, text) {
+            if (!el) return;
+            if (messageHideTimer) {
+                clearTimeout(messageHideTimer);
+            }
+
+            el.textContent = text;
+            el.style.display = 'block';
+
+            messageHideTimer = setTimeout(function() {
+                el.style.display = 'none';
+            }, 20000);
+        }
 
         function updateContent() {
             const t = translations[currentLang];
@@ -297,17 +340,28 @@
             set('btn-map', t.btnMap);
             set('btn-map2', t.btnMap);
             set('rsvp-title', t.rsvpTitle);
-            set('label-name', t.labelName);
+            set('label-contact', t.labelContact);
             set('label-attend', t.labelAttend);
-            set('opt-yes', t.optYes);
-            set('opt-no', t.optNo);
+            set('opt-yes', t.rsvpOptYes);
+            set('opt-no', t.rsvpOptNo);
+            set('label-adult-size', t.labelAdultSize);
+            set('label-child-size', t.labelChildSize);
             set('label-food', t.labelFood);
             set('btn-submit', t.btnSubmit);
             set('gift-title', t.giftTitle);
             set('gift-desc', t.giftDesc);
 
+            const nameInput = document.getElementById('nameInput');
+            if (nameInput) {
+                nameInput.placeholder = currentLang === 'vi'
+                    ? 'Nhập tên/ người đại diện (nhóm)'
+                    : 'Namen eingeben';
+            }
+
             document.getElementById('langBtn').textContent = currentLang === 'vi' ? 'VI | DE' : 'DE | VI';
             document.documentElement.lang = currentLang;
+
+            renderMemberRows();
         }
 
         function switchLanguage() {
@@ -315,65 +369,108 @@
             updateContent();
         }
 
+        function renderMemberRows() {
+            const adultInput = document.getElementById('adultSizeInput');
+            const childInput = document.getElementById('childSizeInput');
+
+            const rawAdult = parseInt(adultInput.value, 10);
+            const rawChild = parseInt(childInput.value, 10);
+
+            const adultCount = Math.max(0, Math.min(20, Number.isNaN(rawAdult) ? 1 : rawAdult));
+            const childCount = Math.max(0, Math.min(20, Number.isNaN(rawChild) ? 0 : rawChild));
+
+            adultInput.value = adultCount;
+            childInput.value = childCount;
+        }
+
+        document.getElementById('adultSizeInput').addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            renderMemberRows();
+        });
+
+        document.getElementById('childSizeInput').addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            renderMemberRows();
+        });
+
         /* ===== RSVP form handler ===== */
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const msg = document.getElementById('rsvpMsg');
             const configMsg = document.getElementById('rsvpConfigMsg');
-            const nameValue = document.getElementById('nameInput').value.trim();
-            const attendValue = document.getElementById('attendSelect').value;
+            const contactName = document.getElementById('nameInput').value.trim();
             const attendText = document.getElementById('attendSelect').selectedOptions[0].text;
+            const adultSizeRaw = parseInt(document.getElementById('adultSizeInput').value, 10);
+            const childSizeRaw = parseInt(document.getElementById('childSizeInput').value, 10);
+            const adultRawValue = document.getElementById('adultSizeInput').value.trim();
+            const childRawValue = document.getElementById('childSizeInput').value.trim();
+            const adultSize = Number.isNaN(adultSizeRaw) ? 0 : adultSizeRaw;
+            const childSize = Number.isNaN(childSizeRaw) ? 0 : childSizeRaw;
+            const totalSize = adultSize + childSize;
             const foodValue = document.getElementById('foodInput').value.trim();
             const formEl = this;
 
             const showSuccess = function() {
                 const t = translations[currentLang];
                 const foodDisplay = foodValue || '-';
+
                 msg.style.whiteSpace = 'pre-line';
-                msg.textContent = `${t.rsvpSuccess}\n${t.labelName}: ${nameValue}\n${t.labelAttend}: ${attendText}\n${t.labelFood}: ${foodDisplay}`;
-                msg.style.display = 'block';
+                showTemporaryMessage(msg, `${t.rsvpSuccess}\n${t.labelContact}: ${contactName}\n${t.labelAttend}: ${attendText}\n${t.labelAdultSize}: ${adultSize}\n${t.labelChildSize}: ${childSize}\n${t.labelFood}: ${foodDisplay}`);
                 msg.classList.remove('hidden');
                 formEl.reset();
+                document.getElementById('adultSizeInput').value = '1';
+                document.getElementById('childSizeInput').value = '0';
+                renderMemberRows();
             };
 
             msg.style.display = 'none';
             configMsg.style.display = 'none';
 
-            if (!nameValue) {
-                configMsg.textContent = translations[currentLang].rsvpNameRequired;
-                configMsg.style.display = 'block';
+            if (!contactName) {
+                showTemporaryMessage(configMsg, translations[currentLang].rsvpNameRequired);
                 return;
             }
 
-            const isValidEntryId = function(entryId) {
-                return /^entry\.\d+$/.test(entryId);
-            };
-
-            if (!isValidEntryId(GOOGLE_FORM_CONFIG.nameEntry) || !isValidEntryId(GOOGLE_FORM_CONFIG.attendEntry) || !isValidEntryId(GOOGLE_FORM_CONFIG.foodEntry)) {
-                configMsg.textContent = translations[currentLang].rsvpNotSaved;
-                configMsg.style.display = 'block';
+            if (!adultRawValue || !childRawValue) {
+                showTemporaryMessage(configMsg, translations[currentLang].rsvpCountRequired);
                 return;
             }
 
-            const payload = new URLSearchParams();
-            payload.append(GOOGLE_FORM_CONFIG.nameEntry, nameValue);
-            payload.append(GOOGLE_FORM_CONFIG.attendEntry, attendValue);
-            payload.append(GOOGLE_FORM_CONFIG.foodEntry, foodValue);
+            if (totalSize < 1 || totalSize > 20) {
+                showTemporaryMessage(configMsg, translations[currentLang].rsvpSizeInvalid);
+                return;
+            }
 
-            fetch(GOOGLE_FORM_CONFIG.formResponseUrl, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: payload.toString()
-            }).then(() => {
-                showSuccess();
-            }).catch(() => {
-                configMsg.textContent = currentLang === 'vi'
-                    ? 'Gui that bai, vui long thu lai sau.'
-                    : 'Senden fehlgeschlagen, bitte erneut versuchen.';
-                configMsg.style.display = 'block';
-            });
+            showSuccess();
+
+            const attendValue = document.getElementById('attendSelect').value;
+            
+                // ===== Send RSVP email via EmailJS =====
+            emailjs.send(
+            "service_66ai25z",     // e.g. service_wedding
+            "template_oen03ge",    // e.g. template_rsvp
+            {
+                name: contactName,
+                confirm: attendValue,
+                num_aldult: adultRawValue,
+                num_children: childRawValue,
+                note: foodValue || "-",
+            
+            }
+            ).then(
+            function () {
+                console.log("RSVP email sent ✅");
+            },
+            function (error) {
+                console.error("RSVP email failed ❌", error);
+            }
+            );
+
+
         });
+        
+
+
 
         /* ===== Scroll-triggered fade-in ===== */
         const observer = new IntersectionObserver(function(entries) {
@@ -389,6 +486,31 @@
 
         /* ===== Initialize ===== */
         updateContent();
+        renderMemberRows();
+
+    
+
+
+    /* Password protection via query string, e.g. ?pass=enterpass */
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const enteredPass = urlParams.get('pass');
+        const correctPass = 'NganBjoern2026'; // Change this to your desired password
+
+        if (enteredPass !== correctPass) {
+            document.body.innerHTML = `
+                <main style="min-height:100vh;display:grid;place-items:center;padding:2rem;background:#FDFBF7;color:#4A4A4A;font-family:'Inter',sans-serif;">
+                    <div style="max-width:34rem;text-align:center;border:1px solid #e7dcc7;background:#fff;padding:2rem;border-radius:0.75rem;box-shadow:0 12px 30px rgba(0,0,0,0.06);">
+                        <h1 style="font-family:'Playfair Display',serif;color:#C5A059;font-size:2rem;margin-bottom:0.75rem;">Private Invitation</h1>
+                        <p style="margin-bottom:0.75rem;">This page is protected.</p>
+                        <p style="margin-bottom:0;">Use a link like <strong>?pass=password</strong>.</p>
+                    </div>
+                </main>
+            `;
+        }
+
+        document.body.style.visibility = 'visible';
+    })();
     </script>
 </body>
 </html>
